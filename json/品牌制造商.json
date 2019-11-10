@@ -1,0 +1,26 @@
+[
+    {
+ "title":"海外制造商",
+  "span":"上新",
+  "price":"9.9元起",
+  "img":"./img/s1.webp"
+},
+{
+    "title":"CK制造商",
+     "span":"",
+     "price":"29.9元起",
+     "img":"./img/s2.webp"
+   },
+   {
+    "title":"新秀丽制造商",
+     "span":"",
+     "price":"159元起",
+     "img":"./img/s3.webp"
+   },
+   {
+    "title":"松下制造商",
+     "span":"",
+     "price":"319元起",
+     "img":"./img/s4.webp"
+   }
+]

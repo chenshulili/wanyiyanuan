@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>侧边</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/公共.css">
+    <script src="./js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+   <ul class="m-indexSideBar">
+     <li class="itemr item1">
+        热销榜
+     </li>
+     <li class="itemr" style="color:#BB3343;font-weight:bold;" onclick="window.open('index.html')">
+      <img src="./img/cb1.png" alt="">
+      <span class="name">
+        全站<br>热销榜
+      </span>
+     </li>
+     <li class="itemr" style="color:#333333;font-weight:normal;" onclick="window.open('详情页.html?'+0)">
+        <img src="./img/cb2.png" alt="">
+        <span class="name">
+            居家<br>生活榜
+        </span>
+       </li>
+       <li class="itemr" style="color:#333333;font-weight:normal;"  onclick="window.open('详情页.html?'+1)">
+        <img src="./img/cb3.png" alt="">
+        <span class="name">
+            服饰<br>鞋包榜
+        </span>
+       </li>
+       <li class="itemr" style="color:#333333;font-weight:normal;"  onclick="window.open('详情页.html?'+2)">
+        <img src="./img/cb4.png" alt="">
+        <span class="name">
+            美食<br>酒水榜
+        </span>
+       </li>
+       <li class="itemr" style="color:#333333;font-weight:normal;"  onclick="window.open('详情页.html?'+6)">
+        <img src="./img/cb5.png" alt="">
+        <span class="name">
+            数码<br>家电榜
+        </span>
+       </li>
+       <li class="itemr" style="color:#333333;font-weight:normal;"  onclick="window.open('详情页.html?'+3)">
+        <img src="./img/cb6.png" alt="">
+        <span class="name">
+            个护<br>清洁榜
+        </span>
+       </li>
+       <li class="itemr" style="color:#333333;font-weight:normal;"  onclick="window.open('详情页.html?'+5)">
+        <img src="./img/cb7.png" alt="">
+        <span class="name">
+            运动<br>旅行榜
+        </span>
+       </li>
+       <li class="itemr" style="color:#333333;font-weight:normal;"  onclick="window.open('详情页.html?'+4)">
+        <img src="./img/cb8.png" alt="">
+        <span class="name">
+            母婴<br>亲子榜
+        </span>
+       </li>
+       <li class="itemr" style="color:#333333;font-weight:normal;"  onclick="window.open('详情页.html?'+7)">
+        <img src="./img/cb9.png" alt="">
+        <span class="name">
+            全球<br>特色榜
+        </span>
+       </li>
+   </ul> 
+  <div class="yx-cp-base">
+     <a href="JavaScript:;" class="opens">
+         <img src="./img/right.gif" alt="">
+     </a>  
+     <a href="JavaScript:;" class="new">
+         <i class="ii"></i>
+         <p>新人有礼</p>
+     </a>
+     <a href="JavaScript:;" class="r-img">
+         <img src="./img/er1.png" alt="">
+         <p>扫码领</p>
+         <p style="color: #BC3B3B;">APP1000元</p>
+         <p style="color: #BC3B3B;">新人礼</p>
+     </a> 
+     <a href="JavaScript:;" class="new new1">
+        <i class="i1"></i>
+        <p>订阅电子刊</p>
+        <div class="ele">
+          <div class="yx-main">
+              <div class="yx-head">严选生活美学</div>
+              <div class="close"></div>
+              <div class="yx-body">
+                 <div class="yx">订阅电子刊，第一时间获取严选最新资讯</div> 
+                 <div class="yx-inputWrap">
+                    <input type="text" placeholder="输入您的电子邮件"> 
+                    <div class="dy1">立即订阅</div> 
+                </div>
+                </div>
+                <div class="yx-foot">
+                   <div class="yx-privilege">
+                      <i class="iw"></i>
+                      <span class="yx-text">专属优惠</span> 
+                   </div>
+                   <div class="yx-privilege">
+                        <i class="iw" style="background-position: 0 -24px;"></i>
+                        <span class="yx-text">专属优惠</span> 
+                     </div>  
+                     <div class="yx-privilege">
+                            <i class="iw" style="background-position: 0 -431px;"></i>
+                            <span class="yx-text">专属优惠</span> 
+                         </div> 
+                </div>
+          </div>  
+        </div>
+    </a>
+    <a href="JavaScript:;" class="new new2">
+        <i></i>
+        <p>在线客服</p>
+    </a>
+    <a href="JavaScript:;" class="new new4">
+            <i></i>
+            <p>返回顶部</p>
+        </a>
+   </div> 
+   <script>
+     $(".close").click(function(){
+         console.log(1)
+         $(".ele").css("display","none")
+     })
+    $(".new4").click(function(){
+        $("html,body").animate({scrollTop:0},0)
+    })
+    $(window).scroll(function(){
+       if($("html,body").scrollTop()>=500){
+         $(".yx-cp-base,.m-indexSideBar").css("display","block")   
+       }else{
+        $(".yx-cp-base,.m-indexSideBar").css("display","none")   
+       }
+    })
+   </script>
+</body>
+</html>

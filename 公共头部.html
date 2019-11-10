@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>公共头部</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/公共.css">
+    <script src="./js/jquery-3.2.1.min.js"></script>
+
+</head>
+
+<body>
+    <!--头部  -->
+    <header>
+        <div class="head">
+            <div class="g-row">
+                <div class="m-noticeList">
+                    <a href="JavaScropt:;">用银行卡在严选购物，最高随机直减99元</a>
+                </div>
+                <div class="right">
+                    <a href="JavaScropt:;" class="login" title="网易严选登录">登录/注册</a>
+                    <div class="split"></div>
+                    <a href="JavaScript:;" class="attitude">我的订单</a>
+                    <div class="split"></div>
+                    <a href="JavaScript:;" class="attitude">会员</a>
+                    <div class="split"></div>
+                    <a href="JavaScript:;" class="attitude">甄选家</a>
+                    <div class="split"></div>
+                    <div class="w-dropdown w-dropdown1">
+                        <span>企业采购
+                            <i></i>
+                        </span>
+                        <div class="jq-dropdown">
+                            <div class="menu">
+                                <a href="JavaScript:;">企业购</a>
+                                <a href="JavaScript:;">礼品卡</a>
+                                <a href="JavaScript:;">联系我们</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="split"></div>
+                    <div class="w-dropdown w-dropdown2">
+                        <span>客户服务
+                            <i></i>
+                        </span>
+                        <div class="jq-dropdown">
+                            <div class="menu">
+                                <a href="JavaScript:;">帮助中心</a>
+                                <a href="JavaScript:;">商务合作</a>
+                                <a href="JavaScript:;">开放平台</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="split"></div>
+                    <div class="w-dropdown w-dropdown2">
+                        <a href="JavaScript:;" class="phone">
+                            <i></i>APP
+                        </a>
+                        <div class="jq-dropdown">
+                            <div class="menu mebu1">
+                                <div class="QRcode">
+                                    <img src="./img/ewm.png" alt="">
+                                </div>
+                                <span class="txt">下载领1000元新人礼包</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+        <div class="js-funcTabWrap">
+            <div class="g-row">
+                <a href="JavaScript:;" class="tab-logo"></a>
+                <a href="JavaScript:;" class="tab-logo-fixed"></a>
+                <div class="tab-inner">
+                    <a href="JavaScript:;" class="shopping">
+                        <i class="w-icon-header"></i>
+                        <span class="cartName">购物车</span>
+                        <i class="w-icon-normal">0</i>
+                    </a>
+                    <div class="user4">
+                    <a href="JavaScript:;"></a>    
+                    </div>
+                    <div class="m-search2">
+                      <i></i>  
+                    </div>
+                    <div class="m-search m-search1">
+                        <i class="header-search-gray"></i>
+                        <input type="text" class="txt1">
+                        <div class="showDefaultWord">
+                            高颜值大容量保温壶119元
+                        </div>
+                        <div class="w-button-search">
+                            <span class="searchButtonName">搜索</span>
+                        </div>
+                        <div class="hotKeywordListWrap">
+                          <ul class="hotKeywordList">
+                              <li class="hotKeywordRow">
+                                  <a href="JavaScript:;">润肌水74折</a>
+                                  <a href="JavaScript:;" style="color:  #CC9756;">回馈金卡充11得33</a>
+                                  <a href="JavaScript:;">爆款 行李箱</a>
+                                  <a href="JavaScript:;">绍兴黄酒58元</a>
+                              </li>
+                              <li class="hotKeywordRow">
+                                    <a href="JavaScript:;">日式香薰机 直减50</a>
+                                    <a href="JavaScript:;" style="color:  #CC9756;">预售盛典</a>
+                                    <a href="JavaScript:;">便携饭盒</a>
+                                    <a href="JavaScript:;">擦手巾</a>
+                                    <a href="JavaScript:;">润肌水74折</a>
+                                </li>
+                          </ul>  
+                        </div>
+                    </div>
+                    <ul class="tab-nav">
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </header>
+    <script>
+         var index= 0;
+         setInterval(function(){
+             index++;
+             if(index == 1){
+               index=0;
+               $(".hotKeywordList").css("top","0")
+             }
+            $(".hotKeywordList").animate({"top":"-36px"})
+         },5000)
+       //  头部
+       $.get("./json/头部分类.json",function(str){
+        $(str).each(function(index,item){
+          $(`
+                <li xqy="${str[index].id}">
+                   <a href="JavaScript:;" title="${this.title}" class="aaa">${this.title}</a>  
+                </li>
+          `).appendTo($(".tab-nav")) 
+          $(`
+            <div class="down">
+               <ul class="clearfix">
+               </ul>  
+            </div>
+          `).appendTo($(".tab-nav li").last())
+          $(".js-funcTabWrap .tab-inner .tab-nav li>a").hover(function(){
+              $(this).parent().siblings().find("a").removeClass("active")
+            $(this).addClass("active")
+          })
+          var person = str[index].fenlei
+          $(person).each(function(x){
+             $(`
+                <li class="downli">
+                  <div class="txt">${person[x].fenlei1}</div>
+                  <div class="all"></div>
+                </li>
+          `).appendTo($(".clearfix").last())
+            var per = person[x].fenlei2
+            var pers = person[x].image
+            $(per).each(function(y){
+                $(`
+                <div class="one">
+                    <a href="JavaScript:;" class="aa">
+                        <img src="${pers[y]}" alt="">
+                        <span>${per[y]}</span>
+                    </a>    
+                    </div>
+                `).appendTo($(".all").last())
+            })
+        $(".js-funcTabWrap .tab-inner .tab-nav li").hover(function(){
+            var that = $(this).index();
+            if(that ==0){
+                $(".js-funcTabWrap .tab-inner .tab-nav li").eq(that).find(".down").css("display","none");  
+            }
+            $(this).children(".down").css("display","block").parent().siblings().find(".down").css("display","none")
+        },function(){
+            $(this).children(".down").css("display","none");
+        })
+          })
+        }) 
+        $(window).scroll(function(){
+       if($("html,body").scrollTop()>=200){
+         $(".js-funcTabWrap").css({"position":"fixed","height":"50px"})
+         $(".head").addClass("heads")
+         $(".tab-logo,.m-search1").css("display","none")
+         $(".user4,.m-search2,.tab-logo-fixed").css("display","block")
+         $(".tab-nav").addClass("ul")
+         $(".shopping").addClass("shoppings")
+         $(".tab-nav").children("li").eq(9).addClass("child").next().addClass("child")
+       }else{
+         $(".js-funcTabWrap").css({"position":"relative"})
+         $(".head").removeClass("heads")
+         $(".tab-logo,.m-search1").css("display","block")
+         $(".user4,.m-search2,.tab-logo-fixed").css("display","none")
+         $(".tab-nav").removeClass("ul")
+         $(".shopping").removeClass("shoppings")
+         $(".tab-nav").children("li").eq(9).removeClass("child").next().removeClass("child")
+       }
+    })
+      })  
+  //  跳页
+ $(".tab-inner .tab-nav").delegate("li","click",function(){
+     var that = $(this).index();
+     if(that == 0){
+        window.open("index.html")
+        $(this).children().find("aaa").addClass("active").parent().siblings("li").find("aaa").removeClass("active")
+     }
+   if(that>=1&&that<=8){
+       var data = $(this).attr("xqy")
+       $(this).children().find("aaa").addClass("active").parent().siblings("li").find("aaa").removeClass("active")
+       window.open("详情页.html?"+data)
+   }else if(that==9){
+    $(this).children().find("aaa").addClass("active").parent().siblings("li").find("aaa").removeClass("active")
+    window.open("foryou.html")
+   }else{
+    $(this).children().find("aaa").addClass("active").parent().siblings("li").find("aaa").removeClass("active")
+    window.open("crowdFunding.html")
+   }
+  
+})
+
+    </script>
+</body>
+
+</html>
